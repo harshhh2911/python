@@ -1,0 +1,149 @@
+1.
+n=int(input("Enter a positive whole number -> "))
+f=1
+for i in range(1,n+1):
+    f=f*i
+print("The factorial of the number is-> ",f)
+
+2.
+n=int(input("Enter the number -> "))
+
+for i in range(2,n+1):          # bcuz 1 is neither prime nor composite
+    t=0 
+    for j in range(2,i):        # to check divisibility from 2 to one less than the number
+        if(i%j==0):              
+            t+=1
+            break
+        else:
+            pass
+    if(t==0):
+        print(i,end=" ")
+
+3.
+sum = 0
+l = [1,2,3,4,5]
+for i in l:
+    sum += i
+    avg = sum/len(l)
+print ("the sum is:",sum)
+print("the average is:", avg)
+
+4.
+s1={1,3,2,5,7}
+s2={1,3,77,8}
+u=s1.union(s2)
+d=s1.difference(s2)
+i=s1.intersection(s2)
+print(u)
+print(d)
+print(i)
+
+5.
+l=[1,2,3,2,4,3,2,6,4,6,6,6]
+d={}
+for i in l:
+    a=i
+    if i not in d:
+        c=0
+        for j in l:
+            if(a==j):
+                c=c+1
+    d[i]=c
+print(d)
+
+6.
+s="atshak"
+
+ss=s[0:2]    # for n jusr replace 2 by n
+sm=s[2:-2]
+sl=s[-2:]               # A k s h a t
+                        # 0 1 2 3 4 5
+                        #  -5  -4 -3 -2 -1
+
+s=sl+sm+ss
+print(s)
+
+7.
+f=open("city.txt","w+")
+l=['Delhi','Mumbai','Kolkata','Lucknow',
+'Haryana','Dehradun','Patna','Kota','Jaipur',
+'Pune']
+
+for i in l:
+    f.write(i+"\n")
+f.close()
+
+8.
+f=open("clg.txt","w")
+text="""The college is Dyal Singh college.
+It come under Delhi University.
+The college comprises of a 11 acre lush green campus.
+The college has the biggest NCC ground.
+It is one of the best courses for Geography courses."""
+
+f.writelines(text)
+f.close()
+
+9.
+f1=open("f1.txt","r")
+f2=open("f2.txt","r")
+f3=open("f3.txt","r")
+f=open("f.txt","w")
+
+x=f1.read()
+x2=f2.read()
+x3=f3.read()
+
+l=[x,x2,x3]
+
+f.writelines(l)
+f.close()
+
+10.
+f=open("f.txt","r")
+s="aeiou"
+
+x=f.read()
+x2=x.lower()            #lower functions does not edits the original string 
+                        #    but it creates a copy of lowered string 
+d=dict.fromkeys(s,0)
+print(d)
+for i in x2:
+    if i in s:
+        d[i]+=1
+print(d)
+
+11.
+r=["Roll no.", "Enrollment no.", "Name", "Course", "Semester"]
+
+s=[[  1,  "E001",   "John Doe",  "Computer Science", 1],
+[  2,  "E002",   "Jane Smith",  "Electrical Engineering", 1],
+[  3,  "E003",   "Alice Johnson",  "Mechanical Engineering", 2],
+[  4,  "E004",   "Bob Williams",  "Civil Engineering", 1],
+[  5,  "E005",   "Eva Wilson",  "Chemistry", 3],
+[  6,  "E006",   "Michael Brown",  "Physics", 2],
+[  7,  "E007",   "Sarah Davis",  "Biology", 4],
+[  8,  "E008",   "Chris Miller",  "Mathematics", 1],
+[  9,  "E009",   "Emily Wilson",  "Computer Science", 2],
+[  10,  "E010",   "David Lee",  "Electrical Engineering", 2]]
+
+
+import csv
+f=open("student.csv","w")
+w=csv.writer(f)
+w.writerow(r)
+w.writerows(s)
+f.close()
+
+12.
+import csv
+
+f=open("student.csv","r")
+r=csv.reader(f)
+l=list(r)
+print(l)
+for i in l:
+    sem=i[4]
+    if sem=='2':            #csv files mein data string format mein input chale jaata h
+        print(i)
+f.close()
